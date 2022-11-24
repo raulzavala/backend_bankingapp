@@ -1,0 +1,245 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Banking App",
+        "description": "Banking App API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "https://backend-bankingapp.herokuapp.com",
+    "basePath": "/",
+    "tags": {
+        "name": "Banking App",
+        "description": "API for users in the system"
+    },
+    "schemas": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/account/create/{name}/{email}/{password}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create user in system",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "User's Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "User's Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New user is created"
+                    }
+                },
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "User's Name",
+                                "example": "Raul"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/login/{email}/{password}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login user in system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "User's Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/account/find/{email}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Find user in system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/account/findOne/{email}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Find one user in system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/account/update/{email}/{amount}/{type}/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update deposit/withdraw from user's account",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "path",
+                        "description": "Amount of transaction",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "Type of transaction",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": "Deposit/Withdraw"
+                        }
+                    }
+                ]
+            }
+        },
+        "/account/all/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show all users registered",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}
